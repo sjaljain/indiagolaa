@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/main.css" />
+
+  <title>Indiagolaa</title>
+</head>
+
+<body>
+  <a href="/blog" class="main-title">
+    Indiagolaa - Travelogues
+  </a>
+
+  <div class="login-area">
+    {% if user %}
+      {{user.name}} (<a class="login-link" href="/logout">logout</a>)
+    {% else %}
+      <a class="login-link" href="/login">login</a>
+      |
+      <a class="login-link" href="/signup">signup</a>
+    {% endif %}
+  </div>
+
+  <div class="content">
+	<div class="static-content-about">
+	<b>About</b><br/>
+	Indiagolaa's mission is to share knowledge learnt while traveling. Share your real life travel experiences with friends, family and other travelers. <br/> Bon Voyage!	
+	</div>
+  {% block content %}
+  {% endblock %}
+  </div>
+</body>
+
+</html>
+
