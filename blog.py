@@ -11,6 +11,8 @@ import webapp2
 import jinja2
 
 from google.appengine.ext import db
+from google.appengine.api.datastore import Query, Put
+
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
@@ -75,7 +77,7 @@ class BlogHandler(webapp2.RequestHandler):
 
 class MainPage(BlogHandler):
   def get(self):
-      self.write('Hello, Udacity!')
+      self.redirect('/blog')
 
 
 ##### user stuff
@@ -153,11 +155,19 @@ class Post(db.Model):
 
 class BlogFront(BlogHandler):
     def get(self):
-        posts = greetings = Post.all().order('-created')
-        if self.format == 'html':
-            self.render('front.html', posts = posts)
-        else:
-            return self.render_json([p.as_dict() for p in posts])
+# Add the lines below for updating the datastore
+# Demo code to add extra column 'authors' to existing table
+#		query = Query("Post")
+#		for item in query.Run():
+#			if not 'author' in item:
+#				item['author'] = "Sajal Jain"
+#				print "author added"
+#			Put(item)
+		posts = greetings = Post.all().order('-created')
+		if self.format == 'html':
+			self.render('front.html', posts = posts)
+		else:
+			return self.render_json([p.as_dict() for p in posts])
 
 class PostPage(BlogHandler):
     def get(self, post_id):
@@ -194,14 +204,14 @@ class NewPost(BlogHandler):
         subject = self.request.get('subject')
         content = self.request.get('content')
         author	= self.request.get('author')
-
+		
         if subject and content and author:
             p = Post(parent = blog_key(), subject = subject, content = content, author = author)
             p.put()
             self.redirect('/blog/%s' % str(p.key().id()))
         else:
             error = "subject and content, please!"
-            self.render("newpost.html", subject=subject, content=content, author = author, error=error)
+            self.render("newpost.html", subject=subject, content=content, author = author, error=error) #add authore here as well
 
 
 USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")

@@ -70,12 +70,49 @@ input[type=submit] {
 }
 
 .main-title {
-    margin-left:15%;
+    margin-left			:15%;
     font-family			:'Helvetica Neue', Arial, sans-serif;
 	font-size			:15px;
 	font-weight			:bold;
 	font-style			:normal;
 	color				:#666666;
+	text-transform		:none;
+	text-decoration		:none;
+	letter-spacing		:normal;
+	word-spacing		:0;
+	line-height			:30px;
+	text-align			:start;
+	vertical-align		:baseline;
+	direction			:ltr;
+	
+	background-image	:none;
+	background-repeat	:repeat;
+	background-position	:0 0;
+	background-attachment:	scroll;
+	opacity				:1;
+	
+	width				:113px;
+	height				:1px;
+	
+	padding-top			:11px;
+	padding-right		:10px;
+	padding-bottom		:11px;
+	padding-left		:10px;
+    
+}
+
+a.main-title:hover{
+	background-color	:#538dc2;
+	color				:white;
+	}
+
+.writepost{
+	font-family			:'Helvetica Neue', Arial, sans-serif;
+	font-size			:15px;
+	font-weight			:bold;
+	font-style			:normal;
+	#background-color	:#538dc2;
+	color				:#19558d;
 	text-transform		:none;
 	text-decoration		:none;
 	letter-spacing		:normal;
@@ -99,11 +136,6 @@ input[type=submit] {
 	padding-bottom		:11px;
 	padding-left		:10px;
     
-}
-
-a.main-title:hover{
-	background-color	:#538dc2;
-	color				:white;
 	}
 
 .content{
@@ -116,7 +148,7 @@ a.main-title:hover{
 	top: 120px;
 	left: 70%;
 	margin-right: 15%;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family			: Helvetica, Arial, sans-serif;
 	font-size			:13px;
 	font-weight			:normal;
 	font-style			:normal;
@@ -153,32 +185,33 @@ a.main-title:hover{
 
 .post-heading {
     position			:relative;
-    font-family			:'Palatino Linotype', Palatino, Palladio, 'URW Palladio L', 'Book Antiqua', Baskerville, 'Bookman Old Style', 'Bitstream Charter', 'Nimbus Roman No9 L', Garamond, 'Apple Garamond', 'ITC Garamond Narrow', 'New Century Schoolbook', 'Century Schoolbook', 'Century Schoolbook L', Georgia, serif;
 	font-size			:23px;
 	font-weight			:normal;
 	font-style			:normal;
-	color				:#19558d;
-	text-transform		:none;
-	text-decoration		:none;
-	letter-spacing		:normal;
-	word-spacing		:0;
-	line-height			:30px;
-	text-align			:start;
-	vertical-align		:baseline;
-	direction			:ltr;
-    
+	   
 }
 
 .post-title {
-    font-size: 24px;
-    font-weight: bold;
+    font-size			: 24px;
+    font-family			:'Palatino Linotype', Palatino, Palladio, 'URW Palladio L', 'Book Antiqua', Baskerville, 'Bookman Old Style', 'Bitstream Charter', 'Nimbus Roman No9 L', Garamond, 'Apple Garamond', 'ITC Garamond Narrow', 'New Century Schoolbook', 'Century Schoolbook', 'Century Schoolbook L', Georgia, serif;
+    font-weight			: bold;
+	color				: #19558d;
 }
 
+.post-author{
+	font-size			: 15px;
+    font-family			: Helvetica, Arial, sans-serif;
+    font-weight			: bold;
+	color				: #333333;
+	}
+	
 .post-date {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    color: #999;
+    position			: absolute;
+    right				: 0px;
+    bottom				: 0px;
+    color				: #999999;
+    font-size			: 13px;
+    font-family			: Helvetica, Arial, sans-serif;
 
 }
 
